@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess game!</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+    <div class="box">
+        <h1>Guess Game!</h1>
+
+        <label for="amount">Guess the Secret number b/w 1 to 25:</label>
+        <br>
+        <input type="number" id="num" placeholder="guess any number!">
+        <br><br>
+
+        <button onclick="imagine()">Click!</button>
+
+        <!-- Result Display -->
+        <p id="result"></p>
+    </div>
+    <script>
+function imagine() {
+            
+            let secretNumber = 17;
+
+            // Get the user input and convert it to a number
+            let userGuess = parseInt(document.getElementById("num").value);
+
+            // Check the guessed number
+            if (userGuess === secretNumber) {
+                document.getElementById("result").innerHTML = "Bingo! Correct answer";
+            }
+            else if (userGuess === secretNumber + 1 || userGuess === secretNumber - 1) {
+                document.getElementById("result").innerHTML = "Close enough to the correct answer!";
+            } else if (Math.abs(userGuess - secretNumber) <= 3) {
+                document.getElementById("result").innerHTML = "You're close, but still wrong.";
+            } else {
+                document.getElementById("result").innerHTML = "You're too far away. Wrong guess!";
+            }
+        }
+
+    </script>
+</body>
+
+</html>
